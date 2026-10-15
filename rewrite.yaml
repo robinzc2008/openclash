@@ -103,15 +103,6 @@ ai-anchor:
     type: select
     # ISP 准备好后只将这一行改为：proxies: [AI-ISP出口]
     proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]
-  entry_group: &ai_entry
-    name: "🛫 AI 入口机场"
-    type: select
-    include-all: true
-    exclude-filter: *ai_exclude_isp
-    exclude-type: "Direct|Reject"
-    # 订阅没有机场节点时拒绝连接，避免退回直连。
-    empty-fallback: REJECT
-
 # 追加基础节点；ISP 模板与 AI 设置放在同一维护区，保持固定名称即可。
 +proxies:
   - { name: 直连, type: direct }
@@ -135,7 +126,6 @@ ai-anchor:
   - {name: 📹 YouTube, type: select, proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]}
   - {name: 🍀 Google, type: select, proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]}
   - *ai_group
-  - *ai_entry
   - {name: 👨🏿‍💻 GitHub, type: select, proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]}
   - {name: 🐬 OneDrive, type: select, proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]}
   - {name: 🪟 Microsoft, type: select, proxies: [直连, 👆 手动选择节点, 🚊 IEPL专线, ♻️ 香港-自动, ♻️ 日本-自动, ♻️ 台湾-自动, ♻️ 新加坡-自动, ♻️ 韩国-自动, ♻️ 美国-自动, ♻️ 俄罗斯-自动, ♻️ 台日新韩澳-自动, ♻️ 港台日新韩澳-自动, ♻️ 东南亚-自动, ♻️ 澳洲-自动, ♻️ 欧洲-自动, ♻️ 中东-自动, ♻️ 拉丁美洲-自动, 🌐 所有-自动]}
@@ -238,4 +228,5 @@ rule-providers:
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   netflix_ip:  { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   apple_ip:    { <<: *ip, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"}
+
 
